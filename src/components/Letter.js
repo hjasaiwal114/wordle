@@ -10,14 +10,14 @@ const Letter = ({ letterPos, attemptVal }) => {
 
     const letterState = 
      currAttempt.attempt > attemptVal &&
-     correct ? "correct" : almost ? "almost" : "error";
+     (correct ? "correct" : almost ? "almost" : "error");
 
   return (
     <div className='letter' id={"letterState"}>
       {" "}
       {letter}
     </div>
-  )
+  );
 }
 
 export default Letter;
