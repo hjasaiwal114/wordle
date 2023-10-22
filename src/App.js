@@ -9,7 +9,9 @@ export const AppContext = createContext();
 function App() {
    const [board, setBoard] = useState(boardDefault);
    const [currentAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0});
-  
+   
+   const correctWord = "RIGHT";
+
    const onSelectLetter = (keyVal) => {
       if (currentAttempt.letterPos > 4) return;
       const newBoard = [...board];
@@ -39,7 +41,16 @@ function App() {
           <h1>Wordle</h1>
         </nav>
         <AppContext.Provider
-          value={{board, setBoard, currentAttempt, setCurrAttempt }}
+          value={{
+            board,
+            setBoard,
+            currentAttempt,
+            setCurrAttempt,
+            onSelectLetter,
+            onDelete,
+            onEnter,
+            correctWord
+           }}
          >
           <div className='game'>
             <Board />
