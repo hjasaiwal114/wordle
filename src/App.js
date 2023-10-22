@@ -10,6 +10,7 @@ function App() {
    const [board, setBoard] = useState(boardDefault);
    const [currentAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0});
    const [wordSet, setWordSet] = useState(new Set());
+   const [disabledLetter, setDisabledLetters] = useState([]);
 
    const correctWord = "RIGHT";
 
