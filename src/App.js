@@ -11,8 +11,11 @@ function App() {
    const [currentAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0});
    const [wordSet, setWordSet] = useState(new Set());
    const [disabledLetter, setDisabledLetters] = useState([]);
+   const [GameOver, setGameOver] = useState({
+    GameOver: false,
+    guessedWord: false,
+   });
 
-   const correctWord = "RIGHT";
 
    useEffect(() => {
     generateWordSet().then((words) => {
@@ -51,8 +54,14 @@ function App() {
     }
     
     if (currWord === correctWord) {
-       alert("Game Ended");
+       setGameOver({gameOver: true, guessedWord: true });
+       return;
     }
+
+    if (currentAttempt.attempt === 5) {
+      setGameOver({gameOver: true, guessedWord: false });
+    }
+
    };
 
    return (
@@ -69,12 +78,16 @@ function App() {
             onSelectLetter,
             onDelete,
             onEnter,
-            correctWord
+            correctWord,
+            setDisabledLetters,
+            disabledLetters,
+            setGameOver,
+            gameOver
            }}
          >
           <div className='game'>
             <Board />
-            <Keyboard />
+           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
           </div>
         </AppContext.Provider>
      </div>

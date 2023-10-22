@@ -7,8 +7,8 @@ export const boardDefault = [
     ["", "" , "", "" ,""],
     ["", "" , "", "" ,""],
 ];
-
 export const generateWordSet = async () => {
+  
     let wordSet;
     await fetch(wordBank)
       .then((response) => response.text())
