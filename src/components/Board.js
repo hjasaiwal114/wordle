@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
-import Letter from './Letter'
+import React, { useContext } from "react";
+import { AppContext } from "../App";
+import Letter from "./Letter";
 
-const Board = () => {
+function Board() {
   return (
     <div className="board">
       {" "}
@@ -52,4 +53,3 @@ const Board = () => {
 }
 
 export default Board;
-
