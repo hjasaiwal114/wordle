@@ -8,14 +8,22 @@ export const AppContext = createContext();
 
 function App() {
    const [board, setBoard] = useState(boardDefault);
-  return (
+   const [currentAttempt, setCurrAttempt] = useState({attempt: 0, letterPos: 0});
+  
+   const onSelectLetter = () => {
+    
+   }
+  
+   return (
      <div className='App'>
         <nav>
           <h1>Wordle</h1>
         </nav>
         <AppContext.Provider value={{board, setBoard }}>
-          <Board />
-          <Keyboard />
+          <div className='game'>
+            <Board />
+            <Keyboard />
+          </div>
         </AppContext.Provider>
      </div>
   );

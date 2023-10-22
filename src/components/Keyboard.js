@@ -1,5 +1,6 @@
 import React from 'react';
-import Key from "./key";
+import Key from './Key';
+
 
 const Keyboard = () => {
   const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
@@ -19,12 +20,14 @@ const Keyboard = () => {
         })}
       </div>
       <div className='line3'>
+      <Key keyVal={"ENTER"} bigKey />
         {keys3.map((key)=> {
           return <Key keyVal={key} />;
         })}
+        <Key keyVal={"DELETE"} bigKey />
       </div>
     </div>
-  )
+  );
 }
 
 export default Keyboard
